@@ -17,6 +17,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { GetActorAgePipe } from './get-actor-age.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { DoesContainPipe } from './does-contain.pipe';
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
   { path: "addactor", component: AddactorComponent },
@@ -42,6 +43,7 @@ const appRoutes: Routes = [
     AddactortomovieComponent,
     NotfoundComponent,
     GetActorAgePipe,
+    DoesContainPipe,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {useHash: true}),

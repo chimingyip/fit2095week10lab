@@ -4,6 +4,7 @@
         <th>Title</th>
         <th>Year</th>
         <th>Actors</th>
+        <th>DoesContain</th>
       </tr>
       <tr *ngFor="let item of moviesDB">
         <td>{{item.title}}</td>
@@ -12,6 +13,9 @@
           <span *ngFor="let x of item.actors; index as i">
             {{item.actors[i].name}} <br>
           </span>
+        </td>
+        <td>
+          {{item.title | doesContain:'movie'}}
         </td>
       </tr>
     </table>

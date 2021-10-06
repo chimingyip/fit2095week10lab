@@ -15,6 +15,8 @@ import { ListmoviesComponent } from './listmovies/listmovies.component';
 import { AddactortomovieComponent } from './addactortomovie/addactortomovie.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { GetActorAgePipe } from './get-actor-age.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
   { path: "addactor", component: AddactorComponent },
@@ -46,6 +48,12 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [DatabaseService],
   bootstrap: [AppComponent],

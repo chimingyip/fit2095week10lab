@@ -6,16 +6,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DoesContainPipe implements PipeTransform {
 
   transform(value: string, ...args: string[]): string {
-    if (args[0] === "actor") {
-      if (value.includes("Tom")) {
-        return "Contains Tom";
-      }
+    if (value.includes(args[0])) {
+      return "Contains " + args[0];
     }
     else {
-      if (value.includes("Movie")) {
-        return "Contains Movie";
-      }
+      return "Does not contain";
     }
-    return "Does not contain";
+
+    // pass tom or movie, doesnt matter if actor or movie
   }
 }

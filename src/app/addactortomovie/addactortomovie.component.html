@@ -1,1 +1,25 @@
-<p>addactortomovie works!</p>
+  <div class="section">
+    <br>
+    <form>
+    <div class="form-group col-md-4">
+        ADD ACTOR
+        <label for="actors"></label>
+        <select class="form-select" name = "actorlist" [(ngModel)]=x >
+          <option *ngFor="let x of actorsDB" [ngValue] = 'x'>{{x.name}} </option>
+        </select>
+        <br>
+        TO MOVIE
+        <label for="movies"></label>
+        <select class="form-select" name = "movielist" [(ngModel)]=i >
+          <option *ngFor="let i of moviesDB" [ngValue]="i" >{{i.title}}   </option>
+          
+        </select>
+        <br>
+        <div>
+        <button class="btn btn-primary mr-3 ml-3" (click) ="onAddActorToMovie()" >ADD ACTOR TO MOVIE  <span class="badge badge-light"></span></button>
+        </div>
+    </div>
+    </form>
+    <br>
+  </div>
+

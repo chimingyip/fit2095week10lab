@@ -14,6 +14,7 @@ import { DeletemovieComponent } from './deletemovie/deletemovie.component';
 import { ListmoviesComponent } from './listmovies/listmovies.component';
 import { AddactortomovieComponent } from './addactortomovie/addactortomovie.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { GetActorAgePipe } from './get-actor-age.pipe';
 const appRoutes: Routes = [
   { path: "listactors", component: ListactorsComponent },
   { path: "addactor", component: AddactorComponent },
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
   { path: "addactortomovie", component: AddactortomovieComponent },
   { path: "deletemovie", component: DeletemovieComponent },
   { path: "", redirectTo: "/listactors", pathMatch: "full" },
+  { path: "**", component: NotfoundComponent },
 ];
 @NgModule({
   declarations: [
@@ -37,9 +39,10 @@ const appRoutes: Routes = [
     ListmoviesComponent,
     AddactortomovieComponent,
     NotfoundComponent,
+    GetActorAgePipe,
   ],
   imports: [
-    RouterModule.forRoot(appRoutes),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     BrowserModule,
     HttpClientModule,
     FormsModule,
